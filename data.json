@@ -1,0 +1,17 @@
+{
+  "1": {
+    "name": "Alice",
+    "movies": {
+      "1": {
+        "name": "Inception",
+        "director": "Christopher Nolan",
+        "year": 2010,
+        "rating": 8.8
+      }
+    }
+  },
+  "2": {
+    "name": "Bob",
+    "movies": {}
+  }
+}
