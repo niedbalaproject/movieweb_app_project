@@ -3,7 +3,6 @@ import os
 from .data_manager_interface import DataManagerInterface
 
 
-
 class JSONDataManager(DataManagerInterface):
 
     def __init__(self, filename):
@@ -24,7 +23,6 @@ class JSONDataManager(DataManagerInterface):
     def get_all_users(self):
         """Return all users from the JSON file"""
         data = self._load_data()
-        print("Loaded data:", data)
         return data
 
     def get_user_movies(self, user_id):
