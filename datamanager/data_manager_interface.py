@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 class DataManagerInterface(ABC):
 
     @abstractmethod
-    def get_all_users(selfself):
+    def get_all_users(self):
         """Return all users from the data source"""
         pass
 

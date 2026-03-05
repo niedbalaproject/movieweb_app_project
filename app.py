@@ -1,13 +1,23 @@
 from flask import Flask
+from datamanager.json_data_manager import JSONDataManager
 
 
 # Create Flask application
 app = Flask(__name__)
 
+# Create DataManager instance
+data_manager = JSONDataManager('movies.json')
+
 
 @app.route('/')
 def home():
     return "Welcome to MovieWeb App!"
+
+
+@app.route('/users')
+def list_users():
+    users = data_manager.get_all_users()
+    return str(users)
 
 
 if __name__ == '__main__':
