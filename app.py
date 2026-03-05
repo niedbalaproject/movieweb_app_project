@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from datamanager.json_data_manager import JSONDataManager
 
 
@@ -22,8 +22,20 @@ def list_users():
 
 @app.route('/users/<user_id>')
 def user_movies(user_id):
+    users = data_manager.get_all_users()
+
+    if user_id not in users:
+        return "User not found", 404
+
+    user = users[user_id]
     movies = data_manager.get_user_movies(user_id)
-    return f"Movies for user {user_id}: {movies}"
+
+    return render_template(
+        "user_movies.html",
+        user=user,
+        user_id=user_id,
+        movies=movies
+    )
 
 
 @app.route('/add_user')

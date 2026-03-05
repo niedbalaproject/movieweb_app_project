@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.name }} - Movies</title>
+</head>
+<body>
+    <h1>{{ user.name }}'s Movies</h1>
+    <a href="{{ url_for('add_movie', user_id=user_id) }}">Add Movie</a>
+
+        <ul>
+            {% for movie_id, movie in movies.items() %}
+                <li>
+                    {{ movie.name }} ({{ movie.year }}) - Rating: {{ movie.rating }}
+
+                    <a href="{{ url_for('update_movie', user_id=user_id, movie_id=movie_id) }}">
+                        Edit
+                    </a>
+
+                    <a href="{{ url_for('delete_movie', user_id=user_id, movie_id=movie_id) }}">
+                        Delete
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+</body>
+</html>
